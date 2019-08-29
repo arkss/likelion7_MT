@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>멋사 MT</title>
-    <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'core/base.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -28,7 +28,7 @@
 <body>
     <ul class="nav justify-content-end">
         <li class="nav-item">
-            <a class="nav-link active" href="{% url 'core:main' %}">main</a>
+            <a class="nav-link" href="{% url 'core:main' %}">main</a>
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
