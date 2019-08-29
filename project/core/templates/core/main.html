@@ -1,0 +1,36 @@
+{% extends "core/base.html" %}
+{% load static %}
+ 
+{% block title %}멋사 MT{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+{% endblock %}
+ 
+{% block content %}
+    <div id="content">
+    <div class="container">
+        <div class="login_box">
+            <div>
+                <div class="exp1">{{ user.username }}</div>
+                <div class="exp2">MT가 끝날 때 까지 미션을 수행하지 못하면 마니또에게 소정의 선물 사주기!</div>
+            </div>
+            <form id="login_form" method="POST" action="">
+                {% csrf_token %}
+                <div class="login_input">
+                    <div class="login_username_div">
+                        <div class="form_label">마니또</div>
+                        <input type="text" id="username" name="username" placeholder="{{user.profile.manito}}" readonly />
+                    </div>
+                    <div class="login_password_div">
+                        <div class="form_label">미션</div>
+                        <input type="text" id="password" name="password" placeholder="{{user.profile.mission}}" readonly/>
+                    </div>
+                </div>
+                
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

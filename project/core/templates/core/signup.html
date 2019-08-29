@@ -1,0 +1,50 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'core/css/signup.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<div id="content">
+    <div class="container">
+        <div class="login_box">
+            <div>
+                <div class="exp1">회원 회원가입</div>
+                <div class="exp2">회원님의 이름과 비밀번호를 입력해 주세요.</div>
+            </div>
+            <form id="login_form" method="POST" action="">
+                {% csrf_token %}
+                <div class="login_input">
+                    <div class="login_username_div">
+                        <div class="form_label">이름</div>
+                        <input type="text" id="username" name="username" placeholder="이름은 꼭 본인 이름 석자를 사용하도록 합시다." />
+                    </div>
+                    <div class="login_password_div" style="margin-bottom: 8px;">
+                        <div class="form_label">비밀번호</div>
+                        <input type="password" id="password" name="password1" />
+                    </div>
+                    <div class="login_password_div">
+                        <div class="form_label" style="font-size:18px;">비밀번호 확인</div>
+                        <input type="password" id="password" name="password2" />
+                    </div>
+                </div>
+                <input id="login_button" type="submit" value="로그인" />
+                
+            </form>
+            {{message}}
+        </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        {% if messages %}
+            {% for message in messages %}
+                alert("{{message.message}}");
+            {% endfor %}
+        {% endif %}
+        
+    </script>
+{% endblock %}

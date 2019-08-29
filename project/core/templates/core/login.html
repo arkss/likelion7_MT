@@ -1,0 +1,46 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'core/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    <div class="container">
+        <div class="login_box">
+            <div>
+                <div class="exp1">회원로그인</div>
+                <div class="exp2">회원님의 이름과 비밀번호를 입력해 주세요.</div>
+            </div>
+            <form id="login_form" method="POST" action="">
+                {% csrf_token %}
+                <div class="login_input">
+                    <div class="login_username_div">
+                        <div class="form_label">이름</div>
+                        <input type="text" id="username" name="username" placeholder="" />
+                    </div>
+                    <div class="login_password_div">
+                        <div class="form_label">비밀번호</div>
+                        <input type="password" id="password" name="password" />
+                    </div>
+                </div>
+                <input id="login_button" type="submit" value="로그인" />
+            </form>
+
+        </div>
+    </div>
+</div>
+    {% endblock %}
+
+
+{% block script %}
+    <script>
+        {% if messages %}
+            {% for message in messages %}
+                alert("{{message.message}}");
+            {% endfor %}
+        {% endif %}
+        
+    </script>
+{% endblock %}
