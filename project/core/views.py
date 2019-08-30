@@ -3,10 +3,11 @@ from django.contrib import messages,auth
 from django.contrib.auth.models import User
 from .models import Profile, Member, Mission
 from random import *
-
+from . import init_database
 
 # Create your views here.
 def main(request):
+    init_database.mission_create()
     return render(request, "core/main.html")
 
 def signup(request):
