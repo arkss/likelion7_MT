@@ -1,6 +1,7 @@
 from .models import Mission
 
 def mission_create():
+    print("mission함수 실행!!!!!!!!!!!!")
     content_list = [
         '이 강민성한테 욕하게 하기',
         '랑 팔씨름 해서 이기기',
