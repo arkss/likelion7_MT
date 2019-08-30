@@ -7,7 +7,7 @@ from . import init_database
 
 # Create your views here.
 def main(request):
-    init_database.mission_create()
+    # init_database.mission_create()
     return render(request, "core/main.html")
 
 def signup(request):
@@ -25,7 +25,7 @@ def signup(request):
         if username in username_list:
             password = request.POST["password1"]
             if password == request.POST["password2"]:
-                
+
 
                 # 팀짜기
                 member = Member.objects.get(name=username)
@@ -51,7 +51,7 @@ def signup(request):
                     manito = choice(manito_list)
                 manito.manitoFlag = True
                 manito.save()
-                
+
 
                 # 미션 뽑기
                 mission_list = Mission.objects.filter(flag=False)
@@ -60,7 +60,7 @@ def signup(request):
                     mission = choice(mission_list)
                 mission.flag = True
                 mission.save()
-                
+
 
                 # user, profile 생성
                 user = User.objects.create_user(
@@ -73,7 +73,7 @@ def signup(request):
                 return redirect('core:main')
 
             else:
-                # 비밀번호가 틀릴 때 
+                # 비밀번호가 틀릴 때
                 messages.info(request, "비밀 번호를 똑같이 적어야 하지 않을까?")
                 redirect('core:signup')
 
@@ -82,8 +82,8 @@ def signup(request):
             messages.info(request, "본인 이름 석자로 하라고 했는데 말이지...?")
             redirect('core:signup')
     return render(request, "core/signup.html")
-        
-        
+
+
 
 
 def login(request):
